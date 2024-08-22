@@ -17,16 +17,16 @@ function App() {
 
 
   const handlePictureIndexUp = () => {
-    console.log(pictureIndex);
     if (pictureIndex <= data.length - 2) {
+    setImage();
     setPictureIndex(prev => prev + 1);
     setImage(formatLink(date, data, pictureIndex));
   }
   }
 
   const handlePictureIndexDown = () => {
-    console.log(pictureIndex);
     if (pictureIndex >= 1) {
+    setImage();
     setPictureIndex(prev => prev - 1);
     setImage(formatLink(date, data, pictureIndex));
   }
@@ -40,6 +40,7 @@ function App() {
 
   const updatePic = async () => {
     const newData = await getPicture(date);
+    console.log(newData);
     setData(newData);
   }
 
